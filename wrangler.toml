@@ -10,5 +10,5 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "revanced-api"
-database_id = "0e48d858-0e59-45dd-86fe-ca763b4fe85e"
+database_id = "bb857b8a-95ba-45e4-8517-df0a7645957a"
 migrations_dir = "drizzle/migrations"
