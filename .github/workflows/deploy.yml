@@ -21,11 +21,11 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build About File & Deploy
+      - name: Build and Deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          bun run about
+          bun run build
           bun run db:migration:apply --remote
           bun run deploy
