@@ -12,3 +12,17 @@ binding = "DB"
 database_name = "revanced-api"
 database_id = "bb857b8a-95ba-45e4-8517-df0a7645957a"
 migrations_dir = "drizzle/migrations"
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = false
+persist = true
+head_sampling_rate = 1
