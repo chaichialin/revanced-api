@@ -21,11 +21,12 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Generate About & Deploy
+      - name: Create about.json & Deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          bun src/about.ts
+          echo '{"version": "1.0.0"}' > about.json
+          echo '{"version": "1.0.0"}' > src/about.json
           bun run db:migration:apply --remote
           bun run deploy
