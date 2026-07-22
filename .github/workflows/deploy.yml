@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -27,7 +28,8 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
 
-          preCommands: |
+a
+          preCommands: 
             echo "$ABOUT_JSON" > about.json
             echo "$KEYS" > data/keys
             bun run db:migration:apply --remote
