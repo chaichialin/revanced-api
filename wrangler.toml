@@ -1,6 +1,8 @@
 name = "revanced-api"
 main = "src/index.ts"
 compatibility_date = "2024-01-01"
+# Optional schema line if you use it locally:
+# "$schema" = "./node_modules/wrangler/config-schema.json"
 
 [[d1_databases]]
 binding = "revanced-api"
@@ -11,6 +13,7 @@ database_id = "bb857b8a-95ba-45e4-8517-df0a7645957a"
 ALLOWED_ORIGINS = "*"
 ENVIRONMENT = "production"
 GITHUB_ORGANIZATIONS = "ReVanced"
+# Do NOT store real tokens here in the repo:
 GITHUB_TOKEN = "dummy_token"
 
 [env.production.vars]
@@ -18,6 +21,19 @@ ALLOWED_ORIGINS = "*"
 ENVIRONMENT = "production"
 GITHUB_ORGANIZATIONS = "ReVanced"
 GITHUB_TOKEN = "dummy_token"
+
+# Development environment overrides
+[env.development]
+name = "my-worker-dev"
+
+[env.development.vars]
+API_HOST = "example.com"
+API_ACCOUNT_ID = "example_user"
+
+# Nested/dotted table for structured vars
+[env.development.vars.SERVICE_X_DATA]
+URL = "service-x-api.dev.example"
+MY_ID = 123
 
 [observability]
 enabled = true
