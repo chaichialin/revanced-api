@@ -21,11 +21,25 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Debug environment
+        run: |
+          echo "PWD: $(pwd)"
+          ls -la
+          bun -v || true
+          node -v || true
+          cat package.json || true
+          echo "Secrets:"
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then echo "CLOUDFLARE_API_TOKEN: MISSING"; else echo "CLOUDFLARE_API_TOKEN: present"; fi
+          if [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then echo "CLOUDFLARE_ACCOUNT_ID: MISSING"; else echo "CLOUDFLARE_ACCOUNT_ID: present"; fi
+          echo "Files:"
+          ls -la src || true
+
       - name: Create about.json & Deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          mkdir -p src
           JSON_CONTENT='{"version":"1.0.0","commit":{"sha":"0000000","message":"Initial build","date":"2026-01-01"}}'
           echo "$JSON_CONTENT" > about.json
           echo "$JSON_CONTENT" > src/about.json
