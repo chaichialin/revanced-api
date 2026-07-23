@@ -29,9 +29,6 @@ head_sampling_rate = 1
 [vars]
 ALLOWED_ORIGINS = "*"
 ENVIRONMENT = "production"
-
-[vars]
-ALLOWED_ORIGINS = "*"
-ENVIRONMENT = "production"
 GITHUB_ORGANIZATIONS = "ReVanced"
 GITHUB_TOKEN = "dummy_token"
+
