@@ -5,7 +5,7 @@ compatibility_date = "2024-01-01"
 [[d1_databases]]
 binding = "revanced-api"
 database_name = "revanced-api"
-database_id = "revanced-api"
+database_id = "bb857b8a-95ba-45e4-8517-df0a7645957a"
 
 [vars]
 ALLOWED_ORIGINS = "*"
