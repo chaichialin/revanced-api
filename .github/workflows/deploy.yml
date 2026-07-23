@@ -31,9 +31,3 @@ jobs:
           echo "$JSON_CONTENT" > src/about.json
           bun run db:migration:apply --remote
           bun run deploy
-         
-          [vars]
-ALLOWED_ORIGINS = "*"
-ENVIRONMENT = "production"
-GITHUB_ORGANIZATIONS = "ReVanced"
-GITHUB_TOKEN = "dummy_token"
